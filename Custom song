@@ -1,0 +1,73 @@
+# Billie Jean beat for Sonic Pi
+use_bpm 120 # set the tempo to 120 beats per minute
+#measure 1
+define :boop1 do
+  play :a4
+  play :cs4
+  play :fs4
+  sleep 0.5
+  play :r
+  sleep 1
+  play :b4
+  play :ds4
+  play :g4
+  sleep 0.5
+  play :r
+  sleep 2
+end
+#measure 2
+define :boop2 do
+  play :a4
+  play :cs4
+  play :e4
+  sleep 0.5
+  play :r
+  sleep 1
+  play :b4
+  play :ds4
+  play :g4
+  sleep 0.5
+  play :r
+  sleep 2
+end
+
+live_loop :drums do # create a loop for the drums
+  sample :drum_heavy_kick # play a heavy kick drum sound
+  sleep 0.5 # wait for half a beat
+  sample :drum_cymbal_closed # play a closed cymbal sound
+  sleep 0.5 # wait for half a beat
+  sample :drum_snare_hard # play a hard snare drum sound
+  sleep 0.5 # wait for half a beat
+  sample :drum_cymbal_closed # play a closed cymbal sound
+  sleep 0.5 # wait for half a beat
+end
+
+with_fx :level, amp: 1.5 do # increase the volume of the bass by 1.5 times
+  use_synth :fm # use a frequency modulation synth for the bass
+  live_loop :bass do # create a loop for the bass
+    play :Fs3 # play an F sharp note in the third octave
+    sleep 0.5 # wait for half a beat
+    play :Cs3 # play a C sharp note in the third octave
+    sleep 0.5 # wait for half a beat
+    play :E3 # play an E note in the third octave
+    sleep 0.5 # wait for half a beat
+    play :Fs3 # play an F sharp note in the third octave
+    sleep 0.5 # wait for half a beat
+    play :E3 # play an E note in the third octave
+    sleep 0.5 # wait for half a beat
+    play :Cs3 # play a C sharp note in the third octave
+    sleep 0.5 # wait for half a beat
+    play :B2 # play a B note in the second octave
+    sleep 0.5 # wait for half a beat
+    play :Cs3 # play a C sharp note in the third octave
+    sleep 0.5 # wait for half a beat
+  end
+end
+sleep 16
+
+use_synth :blade
+live_loop :boops do
+  boop1
+  sleep 0.1
+  boop2
+end
