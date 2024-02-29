@@ -1,73 +1,55 @@
-# Billie Jean beat for Sonic Pi
-use_bpm 120 # set the tempo to 120 beats per minute
-#measure 1
-define :boop1 do
-  play :a4
-  play :cs4
-  play :fs4
-  sleep 0.5
-  play :r
+use_bpm 157
+vocals ="C:/Users/Raymond_Kumamoto/Downloads/「Apacellaアカペラ」Bling-Bang-Bang-Born -- Mashle S2 Op [only vocals].wav"
+clap ="C:/Users/Raymond_Kumamoto/Downloads/Clap Sound For Music Production  [ HD ].wav"
+
+define :drum do
+  sample :bd_ada
   sleep 1
-  play :b4
-  play :ds4
-  play :g4
+  sample :bd_ada
+  sleep 1
+  sample :bd_ada
+  sleep 1
+  sample :bd_ada
   sleep 0.5
-  play :r
-  sleep 2
+  sample :bd_ada
+  sleep 0.5
 end
-#measure 2
-define :boop2 do
-  play :a4
-  play :cs4
-  play :e4
-  sleep 0.5
-  play :r
+define :claps do
+  sample clap
   sleep 1
-  play :b4
-  play :ds4
-  play :g4
+  sample clap
+  sleep 1
+  sample clap
+  sleep 1
+  sample clap
   sleep 0.5
-  play :r
-  sleep 2
+  sample clap
+  sleep 0.5
 end
 
-live_loop :drums do # create a loop for the drums
-  sample :drum_heavy_kick # play a heavy kick drum sound
-  sleep 0.5 # wait for half a beat
-  sample :drum_cymbal_closed # play a closed cymbal sound
-  sleep 0.5 # wait for half a beat
-  sample :drum_snare_hard # play a hard snare drum sound
-  sleep 0.5 # wait for half a beat
-  sample :drum_cymbal_closed # play a closed cymbal sound
-  sleep 0.5 # wait for half a beat
+#intro
+sample :vinyl_rewind
+
+sleep 4
+
+sample vocals
+
+7.times do
+  drum
 end
 
-with_fx :level, amp: 1.5 do # increase the volume of the bass by 1.5 times
-  use_synth :fm # use a frequency modulation synth for the bass
-  live_loop :bass do # create a loop for the bass
-    play :Fs3 # play an F sharp note in the third octave
-    sleep 0.5 # wait for half a beat
-    play :Cs3 # play a C sharp note in the third octave
-    sleep 0.5 # wait for half a beat
-    play :E3 # play an E note in the third octave
-    sleep 0.5 # wait for half a beat
-    play :Fs3 # play an F sharp note in the third octave
-    sleep 0.5 # wait for half a beat
-    play :E3 # play an E note in the third octave
-    sleep 0.5 # wait for half a beat
-    play :Cs3 # play a C sharp note in the third octave
-    sleep 0.5 # wait for half a beat
-    play :B2 # play a B note in the second octave
-    sleep 0.5 # wait for half a beat
-    play :Cs3 # play a C sharp note in the third octave
-    sleep 0.5 # wait for half a beat
+sleep 4
+
+live_loop :drums do
+  7.times do
+    drum
   end
+  stop
 end
-sleep 16
+live_loop :clapps do
+  7.times do
+    claps
+  end
+  stop
+end
 
-use_synth :blade
-live_loop :boops do
-  boop1
-  sleep 0.1
-  boop2
-end
