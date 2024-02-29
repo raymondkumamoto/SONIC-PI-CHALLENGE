@@ -1,6 +1,8 @@
 use_bpm 157
-vocals ="C:/Users/Raymond_Kumamoto/Downloads/「Apacellaアカペラ」Bling-Bang-Bang-Born -- Mashle S2 Op [only vocals].wav"
+vocals ="C:/Users/Raymond_Kumamoto/Downloads/「Apacellaアカペラ」Bling-Bang-Bang-Born -- Mashle S2 Op [only vocals] NEW.wav"
 clap ="C:/Users/Raymond_Kumamoto/Downloads/Clap Sound For Music Production  [ HD ].wav"
+
+
 
 define :drum do
   sample :bd_ada
@@ -14,18 +16,55 @@ define :drum do
   sample :bd_ada
   sleep 0.5
 end
-define :claps do
-  sample clap
+
+define :solodrum do
+  sample :bd_ada
   sleep 1
-  sample clap
+  sample :bd_ada
   sleep 1
-  sample clap
+  sample :bd_ada
   sleep 1
-  sample clap
-  sleep 0.5
-  sample clap
-  sleep 0.5
+  sample :bd_ada
+  sleep 1
 end
+
+define :claps do
+  sample clap, amp: 1
+  sleep 1
+  sample clap, amp: 2
+  sleep 1
+  sample clap, amp: 3
+  sleep 1
+  sample clap, amp: 4
+  sleep 1
+  sample clap, amp: 5
+  sleep 1
+  sample clap, amp: 6
+  sleep 1
+  sample clap, amp: 7
+  sleep 1
+  sample clap, amp: 8
+  sleep 1
+  5.times do
+    4.times do
+      sample clap, amp: 8
+      sleep 1
+    end
+  end
+end
+define :snare do
+  sample :drum_snare_soft
+  sleep 4
+end
+sample :drum_snare_soft
+
+
+
+#song starts
+
+
+
+
 
 #intro
 sample :vinyl_rewind
@@ -41,15 +80,35 @@ end
 sleep 4
 
 live_loop :drums do
-  7.times do
+  24.times do
     drum
   end
   stop
 end
-live_loop :clapps do
-  7.times do
-    claps
+sleep 32
+live_loop :snares do
+  16.times do
+    snare
   end
   stop
 end
+
+sleep 64
+
+live_loop :drumsss do
+  7.times do
+    solodrum
+  end
+  stop
+end
+live_loop :snares do
+  16.times do
+    snare
+  end
+  stop
+end
+
+
+sleep 28
+sample :drum_tom_lo_hard
 
