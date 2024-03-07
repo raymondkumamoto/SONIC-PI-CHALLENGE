@@ -1,0 +1,11 @@
+define :my_player do |n, s|
+  puts("FUNCTION CALLED!!")
+  play n
+  sleep 0.5
+  play n
+  sleep s
+end
+
+my_player :d5, 3
+my_player :b4, 2
+my_player :c3, 1
