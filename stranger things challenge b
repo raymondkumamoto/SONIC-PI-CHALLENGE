@@ -1,0 +1,42 @@
+#challenge B stranger things buildup
+use_bpm 160
+use_synth :bass_foundation
+
+#live_loop :drum do
+#sample :drum_heavy_kick,
+#  sleep 1
+#sample :drum_heavy_kick,
+#  sleep 1
+#end
+
+live_loop :beat do
+  play:c2
+  sleep 0.5
+  play:e2
+  sleep 0.5
+  play:g2
+  sleep 0.5
+  play:b2
+  sleep 0.5
+  
+  
+  play:c3
+  sleep 0.5
+  play:b2
+  sleep 0.5
+  play:g2
+  sleep 0.5
+  play:e2
+  sleep 0.5
+end
+
+sleep 8 #wait here for 8 beats, delays the computer from seeing anything beyond line 26
+
+live_loop :eerie_choir do
+  sample :elec_filt_snare, beat_stretch: 15, amp: 7
+  sleep 8
+  sample :glitch_bass_g, beat_stretch: 10, amp: 5
+  sleep 16
+end
+
+sleep 16
