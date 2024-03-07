@@ -1,0 +1,160 @@
+use_synth :piano
+use_bpm 120
+notechange=[:d5, :a4]
+x=1
+#FUNCTION DEFINITIONS
+define :function1and2 do |x|
+  play :c5
+  sleep 0.5
+  play :d5
+  sleep 0.5
+  play :e5
+  sleep 0.5
+  play :d5
+  sleep 1
+  play :c5
+  sleep 1
+  play :d5
+  sleep 1
+  puts ("SEE I KEPT MY PROMIS")
+  play x
+  sleep 1
+  play :c5
+  sleep 1.5
+  play :r
+  sleep 1
+end
+
+#-------------------------music starts here-------------------------#
+
+#INTRO
+play :e4
+sleep 0.5
+play :f4
+sleep 0.5
+play :g4, sustain: 3
+sleep 2
+play :c5, sustain: 3
+sleep 2
+play :a4, sustain: 3
+sleep 2
+play :r
+sleep 1
+
+#FUNCTION CALLS
+function1and2 :d5
+function1and2 :a4
+
+#OUTRO
+play :a4
+sleep 1
+play :g4
+sleep 0.5
+play :c5
+sleep 1
+play :c5
+sleep 1
+play :e4
+sleep 1
+play :d4, sustain: 2
+sleep 1.5
+
+
+
+
+=begin
+use_synth :piano
+use_bpm 120
+
+#FUNCTION DEFINITIONS
+define :function1 do
+  play :c5
+  sleep 0.5
+  play :d5
+  sleep 0.5
+  play :e5
+  sleep 0.5
+  play :d5
+  sleep 1
+  play :c5
+  sleep 1
+  play :d5
+  sleep 1
+  play :d5 # Only this note is different!
+  sleep 1
+  play :c5
+  sleep 1.5
+  play :r
+  sleep 1
+end
+
+define :function2 do
+  play :c5
+  sleep 0.5
+  play :d5
+  sleep 0.5
+  play :e5
+  sleep 0.5
+  play :d5
+  sleep 1
+  play :c5
+  sleep 1
+  play :d5
+  sleep 1
+  play :a4 # Only this note is different!
+  sleep 1
+  play :c5
+  sleep 1.5
+  play :r
+  sleep 1
+end
+
+#-------------------------music starts here-------------------------#
+
+#INTRO
+play :e4
+sleep 0.5
+play :f4
+sleep 0.5
+play :g4, sustain: 3
+sleep 2
+play :c5, sustain: 3
+sleep 2
+play :a4, sustain: 3
+sleep 2
+play :r
+sleep 1
+
+#FUNCTION CALLS
+function1
+function2
+
+#OUTRO
+play :a4
+sleep 1
+play :g4
+sleep 0.5
+play :c5
+sleep 1
+play :c5
+sleep 1
+play :e4
+sleep 1
+play :d4, sustain: 2
+sleep 1.5
+
+
+
+
+
+
+use_bpm 120
+song= ["come", "along", "with", "me", "To", "a", "town", "beside", "the", "sea", "We", "can", "wander", "through", "the", "forest", "And", "do", "so", "as", "we", "please."]
+sleep=[0.5, 1, 1, 1,1, 1, 1,1, 1, 1,1, 1, 1,1, 1, 1,1, 1, 1,1, 1, 1,]
+x=0
+22.times do
+  print(song[x])
+  sleep(sleep[x])
+  x=x+1
+end
+=end
