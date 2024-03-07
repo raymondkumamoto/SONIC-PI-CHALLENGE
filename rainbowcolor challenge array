@@ -1,0 +1,25 @@
+# the array (list) below is not being used
+rainbowColors = ["red", "orange", "yellow","green", "blue", "indigo", "violet"]
+index = 0
+
+# this code prints all the colors
+puts(rainbowColors[0]) #index 0=red
+sleep(1)
+
+puts(rainbowColors[1])
+sleep(1)
+
+puts(rainbowColors[2])
+sleep(1)
+
+puts(rainbowColors[3])
+sleep(1)
+
+puts(rainbowColors[4])
+sleep(1)
+
+puts(rainbowColors[5])
+sleep(1)
+
+puts(rainbowColors[6])
+sleep(1)
